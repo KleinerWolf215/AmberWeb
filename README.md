@@ -1,5 +1,5 @@
 # AmberWeb
-Homepage for a sports-club. Main features: Colaboration via calendar and making decision together.
+Spring Boot backend of a homepage, e.g. for a sports-club. Main features: Colaboration via calendar and making decision together.
 
 ## Calendar
 Calendar having different views for past, present and future. 
