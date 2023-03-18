@@ -8,6 +8,6 @@ Calendar having different views for past, present and future.
 * Maybe not everybody will be able to see such meetings, depending on privacy level of such a meeting and role of mentioned member.
 
 ## Degree of realization
-* Model contains entities, but service-layer only got classes MemberService and RoleService so far. Tables and schema will be created when running. 
+* Model contains entities, but Tables and schema will be created when running. 
 * Controller-level only got classes MemberController and RoleController so far.  
-* Service Layer: No business-logic implemented, but some structural attempt made in direction of Choices, Agreements and Scheduler. There are no true SQL-queries places somewhere.
+* Service-layer only got classes MemberService and RoleService so far. No business-logic implemented, but some structural attempt made in direction of Choices, Agreements and Scheduler. There are no true SQL-queries places somewhere.
