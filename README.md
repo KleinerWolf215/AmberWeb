@@ -5,7 +5,7 @@ Spring Boot backend of a homepage, e.g. for a sports-club. Main features: Colabo
 Homepage shall have individual views, differing by their publicity level. For example members shall be able to see more than ordinary visitors of this homepage. This shall affect especially main features mentioned: calender and making decisions.
 
 ## Layout of Homepage
-Presumably all content of this homepage can be traversed by just scrolling down or sidewards. But backend is not affected by this.
+Presumably all content of this homepage can be traversed by just scrolling down or sidewards. But this does not affect backend.
 
 ## Calendar
 Calendar having different views for past, present and future. 
