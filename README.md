@@ -21,7 +21,7 @@ Different ways to make decicions might be offered:
 A history of decisions could be implemented - where each decision could have a expiriy date - individually for show time and for related database content. Decisions shall only be visible for members.
 
 ## Feedback & Diagnosis
-No cookies shall be used. But logging might be allowed depending on role and agreement of a user - more in the form of temporarily recording user actions (he start and stops such a recording). A feedback formular shall be provided, where such a logging can be attached.
+No cookies shall be used. But logging might be allowed but not without agreement of the related user - more in the form of temporarily recording user actions (he starts and stops such a recording). A feedback formular shall be provided, where such a logging can be attached.
 
 ## Degree of Realization
 * Model contains entities, but tables and schema will be created when running. 
