@@ -3,7 +3,7 @@ package tulla.club.amberweb.model.content;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "contact")
+@Table(name = "CONTACT")
 public class Contact implements IsContent{
 
     @Id
@@ -43,11 +43,9 @@ public class Contact implements IsContent{
     )
     private String internetAddress;
 
-    @Column(
-            name = "location_id",
-            nullable = true
-    )
-    private Long locationId;
+    @OneToOne(optional =  true, fetch = FetchType.LAZY)
+    @MapsId
+    private Location location;
 
 
     //
@@ -60,23 +58,23 @@ public class Contact implements IsContent{
     public Contact(String firstPhoneNumber,
                    String secondPhoneNumber,
                    String internetAddress,
-                   Long locationId) {
+                   Location location) {
         this.firstPhoneNumber = firstPhoneNumber;
         this.secondPhoneNumber = secondPhoneNumber;
         this.internetAddress = internetAddress;
-        this.locationId = locationId;
+        this.location = location;
     }
 
     public Contact(Long id,
                    String firstPhoneNumber,
                    String secondPhoneNumber,
                    String internetAddress,
-                   Long locationId) {
+                   Location location) {
         this.id = id;
         this.firstPhoneNumber = firstPhoneNumber;
         this.secondPhoneNumber = secondPhoneNumber;
         this.internetAddress = internetAddress;
-        this.locationId = locationId;
+        this.location = location;
     }
 
 
@@ -120,12 +118,12 @@ public class Contact implements IsContent{
     }
 
 
-    public Long getLocationId() {
-        return locationId;
+    public Location getLocation() {
+        return location;
     }
 
-    public void setLocationId(Long locationId) {
-        this.locationId = locationId;
+    public void setLocation(Location location) {
+        this.location = location;
     }
 
 
@@ -140,7 +138,7 @@ public class Contact implements IsContent{
                 ", firstPhoneNumber='" + firstPhoneNumber + '\'' +
                 ", secondPhoneNumber='" + secondPhoneNumber + '\'' +
                 ", internetAddress='" + internetAddress + '\'' +
-                ", locationId=" + locationId +
+                ", location=" + location +
                 '}';
     }
 }

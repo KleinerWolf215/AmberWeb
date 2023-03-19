@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import java.util.UUID;
 
 @Entity
-@Table(name = "role")
+@Table(name = "ROLE")
 public class Role implements IsContent {
 
     @Id
@@ -23,11 +23,16 @@ public class Role implements IsContent {
     )
     private String roleName;
 
-    @Column(
-            name = "sub_role_id",
-            nullable = true
-    )
-    private UUID subRoleId; // id of representative role
+    @OneToOne(optional = true)
+    @JoinColumn(name = "higher_role_id")
+    private Role higherRole;
+
+    @OneToOne(mappedBy = "higherRole", optional = true)
+    private Role lowerRole;
+
+    @OneToOne(optional =  true)
+    @MapsId
+    private Contact contact;
 
 
     //
@@ -37,20 +42,27 @@ public class Role implements IsContent {
     public Role() {
     }
 
-    public Role(String roleName,
-                UUID subRoleId) {
-        this.roleName = roleName;
-        this.subRoleId = subRoleId;
-    }
-
     public Role(UUID id,
                 String roleName,
-                UUID subRoleId) {
+                Role higherRole,
+                Role lowerRole,
+                Contact contact) {
         this.id = id;
         this.roleName = roleName;
-        this.subRoleId = subRoleId;
+        this.higherRole = higherRole;
+        this.lowerRole = lowerRole;
+        this.contact = contact;
     }
 
+    public Role(String roleName,
+                Role higherRole,
+                Role lowerRole,
+                Contact contact) {
+        this.roleName = roleName;
+        this.higherRole = higherRole;
+        this.lowerRole = lowerRole;
+        this.contact = contact;
+    }
 
     //
     // Accessors
@@ -74,9 +86,37 @@ public class Role implements IsContent {
     }
 
 
-    public UUID getSubRoleId() { return subRoleId; }
+    public Role getHigherRole() {
+        return higherRole;
+    }
 
-    public void setSubRoleId(UUID subRole) { this.subRoleId = subRole; }
+    public void setHigherRole(Role higherRole) {
+        if (higherRole.getId() == this.getId()){
+            throw new IllegalArgumentException("Referencing itself is not allowed.");
+        }
+        this.higherRole = higherRole;
+    }
+
+
+    public Role getLowerRole() {
+        return lowerRole;
+    }
+
+    public void setLowerRole(Role lowerRole) {
+        if (higherRole.getId() == this.getId()){
+            throw new IllegalArgumentException("Referencing itself is not allowed.");
+        }
+        this.lowerRole = lowerRole;
+    }
+
+
+    public Contact getContact() {
+        return contact;
+    }
+
+    public void setContact(Contact contact) {
+        this.contact = contact;
+    }
 
 
     //
@@ -88,7 +128,9 @@ public class Role implements IsContent {
         return "Role{" +
                 "id=" + id +
                 ", roleName='" + roleName + '\'' +
-                ", representative='" + subRoleId + '\'' +
+                ", higherRole=" + higherRole +
+                ", lowerRole=" + lowerRole +
+                ", contact=" + contact +
                 '}';
     }
 }

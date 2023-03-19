@@ -2,10 +2,10 @@ package tulla.club.amberweb.model.content;
 
 import jakarta.persistence.*;
 
-import java.util.UUID;
+import java.util.Set;
 
 @Entity
-@Table(name = "member")
+@Table(name = "MEMBER")
 public class Member implements IsContent {
 
     @Id
@@ -37,12 +37,19 @@ public class Member implements IsContent {
     )
     private String subtitle;
 
+    @Column(
+            name = "roles",
+            nullable = false
+    )
+    @OneToMany(
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
     /**
-     * Optional one-to-one relationship.
-     * https://www.baeldung.com/jpa-one-to-one
+     * One-to-Many relationship
+     * https://www.baeldung.com/hibernate-one-to-many
      */
-    @OneToOne(mappedBy = "member")
-    private RolesTable rolesTable;
+    private Set<Role> roles;
 
 
     //
@@ -55,22 +62,22 @@ public class Member implements IsContent {
     // Die Datenbank wird für uns die ID generieren. Daher fehlt sie hier.
     public Member(String nickname,
                   String subtitle,
-                  RolesTable rolesTable
+                  Set<Role> roles
                   ) {
         this.nickname = nickname;
         this.subtitle = subtitle;
-        this.rolesTable = rolesTable;
+        this.roles = roles;
     }
 
     public Member(Long id,
                   String nickname,
                   String subtitle,
-                  RolesTable rolesTable
+                  Set<Role> roles
                   ) {
         this.id = id;
         this.nickname = nickname;
         this.subtitle = subtitle;
-        this.rolesTable = rolesTable;
+        this.roles = roles;
     }
 
 
@@ -105,12 +112,12 @@ public class Member implements IsContent {
     }
 
 
-    public RolesTable getRolesTable() {
-        return rolesTable;
+    public Set<Role> getRoles() {
+        return roles;
     }
 
-    public void setRolesTable(RolesTable rolesTable) {
-        this.rolesTable = rolesTable;
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
     }
 
 
@@ -124,7 +131,7 @@ public class Member implements IsContent {
                 "id=" + id +
                 ", nickname='" + nickname + '\'' +
                 ", subtitle='" + subtitle + '\'' +
-                ", rolesTable=" + rolesTable +
+                ", roles=" + roles +
                 '}';
     }
 }

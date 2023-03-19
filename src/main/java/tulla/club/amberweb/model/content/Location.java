@@ -3,7 +3,7 @@ package tulla.club.amberweb.model.content;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "location")
+@Table(name = "LOCATION")
 public class Location implements IsContent {
 
     @Id

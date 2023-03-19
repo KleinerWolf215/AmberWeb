@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import tulla.club.amberweb.model.content.IsContent;
 
 @Entity
-@Table(name = "meeting")
+@Table(name = "MEETING")
 public class Meeting implements IsContent {
 
     @Id

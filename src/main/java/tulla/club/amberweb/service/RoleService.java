@@ -12,6 +12,8 @@ public class RoleService {
         return List.of(
                 new Role(
                         "Buchführer",
+                        null,
+                        null,
                         null
                 )
         );
