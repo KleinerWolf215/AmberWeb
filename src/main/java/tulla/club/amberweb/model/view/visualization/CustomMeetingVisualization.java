@@ -1,4 +1,4 @@
-package tulla.club.amberweb.view.visualization;
+package tulla.club.amberweb.model.view.visualization;
 
 public class CustomMeetingVisualization extends AnyMeetingVisualization {
 

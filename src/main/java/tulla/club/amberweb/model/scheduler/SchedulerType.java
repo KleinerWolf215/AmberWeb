@@ -1,4 +1,4 @@
-package tulla.club.amberweb.model.calendar;
+package tulla.club.amberweb.model.scheduler;
 
 public enum SchedulerType {
 

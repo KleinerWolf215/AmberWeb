@@ -1,14 +1,14 @@
 package tulla.club.amberweb.controller.acts;
 
-public class Act extends AnyAct {
+public class ShowAct extends AnyAct {
 
     //
     // Methods
     //
 
     @Override
-    public Act createAct() {
-        return new Act();
+    protected ShowAct createAct() {
+        return new ShowAct();
     }
 
     @Override

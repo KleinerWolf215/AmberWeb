@@ -1,6 +1,8 @@
-package tulla.club.amberweb.model.calendar;
+package tulla.club.amberweb.model.scheduler;
 
-import tulla.club.amberweb.controller.Momentum;
+import tulla.club.amberweb.model.calendar.Meeting;
+
+import java.time.Period;
 
 public class Scheduler {
 

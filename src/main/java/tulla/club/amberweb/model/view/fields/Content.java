@@ -1,4 +1,4 @@
-package tulla.club.amberweb.view.fields;
+package tulla.club.amberweb.model.view.fields;
 
 import tulla.club.amberweb.model.content.IsContent;
 

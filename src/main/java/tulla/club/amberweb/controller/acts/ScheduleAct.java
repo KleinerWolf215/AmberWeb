@@ -1,10 +1,15 @@
 package tulla.club.amberweb.controller.acts;
 
-public class Schedule extends Act{
+public class ScheduleAct extends AnyAct {
 
     //
     // Methods
     //
+
+    @Override
+    public ScheduleAct createAct() {
+        return new ScheduleAct();
+    }
 
     @Override
     public String toString() {

@@ -1,4 +1,4 @@
-package tulla.club.amberweb.controller;
+package tulla.club.amberweb.model.scheduler;
 
 public enum Momentum {
 

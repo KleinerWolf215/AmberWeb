@@ -1,10 +1,15 @@
 package tulla.club.amberweb.controller.acts;
 
-public class Store extends Act{
+public class StoreAct extends AnyAct {
 
     //
     // Methods
     //
+
+    @Override
+    protected StoreAct createAct() {
+        return new StoreAct();
+    }
 
     @Override
     public String toString() {

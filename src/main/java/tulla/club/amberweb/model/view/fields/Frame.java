@@ -1,4 +1,4 @@
-package tulla.club.amberweb.view.fields;
+package tulla.club.amberweb.model.view.fields;
 
 public class Frame {
     private int order;
