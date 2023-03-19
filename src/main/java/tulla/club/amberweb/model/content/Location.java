@@ -44,7 +44,7 @@ public class Location implements IsContent {
     private String houseNumber;
 
     @Column(
-            name = "nickname",
+            name = "town",
             nullable = true,
             columnDefinition = "TEXT"
     )

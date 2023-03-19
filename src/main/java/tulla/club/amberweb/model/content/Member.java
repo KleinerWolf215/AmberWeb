@@ -19,7 +19,7 @@ public class Member implements IsContent {
             generator = "member_sequence"
     )
     @Column(
-            name = "id",
+            name = "member_id",
             updatable = false
     )
     private Long id;
@@ -39,7 +39,7 @@ public class Member implements IsContent {
 
     @Column(
             name = "roles",
-            nullable = false
+            nullable = true
     )
     @OneToMany(
             cascade = CascadeType.ALL,

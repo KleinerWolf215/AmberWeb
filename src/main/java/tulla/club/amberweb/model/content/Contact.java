@@ -17,7 +17,7 @@ public class Contact implements IsContent{
             generator = "contact_sequence"
     )
     @Column(
-            name = "id",
+            name = "contact_id",
             updatable = false
     )
     private Long id;
