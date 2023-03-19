@@ -1,5 +1,8 @@
 # AmberWeb
-Spring Boot backend of a homepage, e.g. for a sports-club. Main features: Colaboration via calendar and making decision together (voting).
+Backend of a homepage, e.g. for a sports-club. Main features: Colaboration via calendar and making decision together (voting).
+
+## Technology
+Spring Boot, Gradle, JDK/Hibernate, MariaDb
 
 ## Views
 Homepage shall have individual views, differing by their publicity level. For example members shall be able to see more than ordinary visitors of this homepage. This shall affect especially main features mentioned: calender and making decisions.
