@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import tulla.club.amberweb.model.content.Member;
-import tulla.club.amberweb.service.MemberService;
+import tulla.club.amberweb.model.people.Member;
+import tulla.club.amberweb.service.people.MemberService;
 
 import java.util.List;
 

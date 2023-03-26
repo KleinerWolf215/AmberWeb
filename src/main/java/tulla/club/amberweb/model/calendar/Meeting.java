@@ -1,7 +1,8 @@
 package tulla.club.amberweb.model.calendar;
 
 import jakarta.persistence.*;
-import tulla.club.amberweb.model.content.IsContent;
+import tulla.club.amberweb.dao.IsContent;
+import tulla.club.amberweb.model.host.visualisation.Publicity;
 
 @Entity
 @Table(name = "MEETING")
@@ -32,8 +33,7 @@ public class Meeting implements IsContent {
 
     @Column(
             name = "term_id",
-            nullable = false,
-            columnDefinition = "TEXT"
+            nullable = false
     )
     private Long termId;
 
@@ -49,6 +49,13 @@ public class Meeting implements IsContent {
     )
     private Long callingMemberId;
 
+    /**
+     * Unidirectional with foreign key
+     */
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "publicity_id", referencedColumnName = "id")
+    private Publicity publicity;
+
 
     //
     // Constructors
@@ -57,27 +64,31 @@ public class Meeting implements IsContent {
     public Meeting() {
     }
 
-    public Meeting(String purpose,
-                   Long termId,
-                   Long locationId,
-                   Long callingMemberId) {
-        this.purpose = purpose;
-        this.termId = termId;
-        this.locationId = locationId;
-        this.callingMemberId = callingMemberId;
-    }
-
     public Meeting(Long id,
                    String purpose,
-                   Long termId, Long locationId,
-                   Long callingMemberId) {
+                   Long termId,
+                   Long locationId,
+                   Long callingMemberId,
+                   Publicity publicity) {
         this.id = id;
         this.purpose = purpose;
         this.termId = termId;
         this.locationId = locationId;
         this.callingMemberId = callingMemberId;
+        this.publicity = publicity;
     }
 
+    public Meeting(String purpose,
+                   Long termId,
+                   Long locationId,
+                   Long callingMemberId,
+                   Publicity publicity) {
+        this.purpose = purpose;
+        this.termId = termId;
+        this.locationId = locationId;
+        this.callingMemberId = callingMemberId;
+        this.publicity = publicity;
+    }
 
     //
     // Accesssors
@@ -127,6 +138,14 @@ public class Meeting implements IsContent {
         this.callingMemberId = callingMemberId;
     }
 
+    public Publicity getPublicity() {
+        return publicity;
+    }
+
+    public void setPublicity(Publicity publicity) {
+        this.publicity = publicity;
+    }
+
 
     //
     // Methods
@@ -140,6 +159,7 @@ public class Meeting implements IsContent {
                 ", termId=" + termId +
                 ", locationId=" + locationId +
                 ", callingMemberId=" + callingMemberId +
+                ", publicity=" + publicity +
                 '}';
     }
 }
